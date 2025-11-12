@@ -18,7 +18,7 @@ public class PerfilEntity {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private long id;
+    private Long id;
 
     @Column
     private String fotoPerfil;

@@ -11,7 +11,7 @@ import org.springframework.beans.BeanUtils;
 @Setter
 public class UsuarioPerfilDto {
 
-    private long id;
+    private Long id;
     private UsuarioDto usario;
     private PerfilDto perfil;
 

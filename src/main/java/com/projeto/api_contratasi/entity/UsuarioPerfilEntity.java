@@ -18,7 +18,7 @@ public class UsuarioPerfilEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO")

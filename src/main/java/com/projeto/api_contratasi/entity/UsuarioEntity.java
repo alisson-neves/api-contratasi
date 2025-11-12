@@ -1,13 +1,10 @@
 package com.projeto.api_contratasi.entity;
 
-import com.projeto.api_contratasi.dto.EnderecoDto;
 import com.projeto.api_contratasi.dto.UsuarioDto;
 import com.projeto.api_contratasi.entity.Enuns.EstadoUsuario;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.beans.BeanUtils;
-
-import java.util.List;
 
 @Entity
 @Table(name = "CSI_USUARIO")
@@ -19,7 +16,7 @@ public class UsuarioEntity {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private long id;
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String nome;

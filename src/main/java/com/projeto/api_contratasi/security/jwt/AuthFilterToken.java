@@ -46,7 +46,7 @@ public class AuthFilterToken extends OncePerRequestFilter {
     private String getToken(HttpServletRequest request){
         String headerToken = request.getHeader("Authorization");
         if(StringUtils.hasText(headerToken) && headerToken.startsWith("Beader")){
-            return headerToken.replace("Beader ","");
+            return headerToken.replace("Bearer ","");
         }
         return null;
     }

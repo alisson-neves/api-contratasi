@@ -32,11 +32,13 @@ public class UsuarioPerfilService {
     }
 
     public void excluir (Long id){
-        UsuarioPerfilEntity usuarioPerfil = usuarioPerfilRepository.findById(id).get();
+        UsuarioPerfilEntity usuarioPerfil = usuarioPerfilRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Erro na Exclusão do Vínculo Usuário-Perfil! Verifique o ID: " + id));
         usuarioPerfilRepository.delete(usuarioPerfil);
     }
 
     public UsuarioPerfilDto buscarPorId(Long id){
-        return new UsuarioPerfilDto(usuarioPerfilRepository.findById(id).get());
+        return new UsuarioPerfilDto(usuarioPerfilRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Vínculo Usuário-Perfil não encontrado! Verifique o ID: " + id)));
     }
 }

@@ -30,11 +30,14 @@ public class PerfilService {
     }
 
     public void excluir (Long id){
-        PerfilEntity perfil = perfilRepository.findById(id).get();
+        PerfilEntity perfil = perfilRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Exclusão inváida! Não foi possivel encontrar o Perfil de ID: " + id));
         perfilRepository.delete(perfil);
     }
 
     public PerfilDto buscarPorId(Long id){
-        return new PerfilDto(perfilRepository.findById(id).get());
+
+        return new PerfilDto(perfilRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Não foi possivel encontrar o Perfil de ID: " + id)));
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.beans.BeanUtils;
 @Setter
 @NoArgsConstructor
 public class PerfilDto {
-    private long id;
+    private Long id;
     private String fotoPerfil;
     private String linkedin;
     private String site;

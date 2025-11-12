@@ -34,7 +34,8 @@ public class EnderecoService {
 
     //Delete
     public void excluir (int id){
-        EnderecoEntity endereco = enderecoRepository.findById(id).get();
+        EnderecoEntity endereco = enderecoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Endereço não encontrado! Verifique o ID:" + id));
         enderecoRepository.delete(endereco);
     }
 

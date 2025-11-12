@@ -12,7 +12,7 @@ import org.springframework.beans.BeanUtils;
 @NoArgsConstructor
 public class UsuarioDto {
 
-    private long id;
+    private Long id;
 
     private String nome;
 
@@ -33,5 +33,9 @@ public class UsuarioDto {
         if (usuario != null && usuario.getEndereco() != null){
             this.endereco = new EnderecoDto(usuario.getEndereco());
         }
+    }
+
+    public UsuarioDto(EstadoUsuario estado){
+        this.estado = EstadoUsuario.INATIVO;
     }
 }

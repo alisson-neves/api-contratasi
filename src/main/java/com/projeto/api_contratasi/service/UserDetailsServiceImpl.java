@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
    @Autowired
@@ -15,7 +16,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UsuarioEntity usuario = usuarioRepository.findByLogin(username).get();
+        UsuarioEntity usuario = usuarioRepository.findByLogin(username)
+                .orElseThrow(()-> new UsernameNotFoundException("Não foi possivel encontrar o Usuário de Login: " + username));
         return UserDetailsImpl.build(usuario);
     }
 }
